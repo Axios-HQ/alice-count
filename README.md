@@ -11,10 +11,12 @@ Your team has been working on a text analysis program, and you've noticed an iss
    - The function should only count the word `cat` as it appears in the text, and should exclude any words that simply contain `cat`."
 
 2. Output a Word Frequency log that:
+
    - Counts the frequency of each word.
    - Displays only the top-ten most-frequent words within the text.
    - Excludes the following words from the output:
-     - the, and, to, a, of, it, in, was
+      - the, and, to, a, of, it, in, was
+
    - Properly sorts the output, from most-frequent to least-frequent.
 
 ## Submission & Testing
