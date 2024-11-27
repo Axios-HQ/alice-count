@@ -6,7 +6,7 @@ const countCat = () => {
   const searchTerm = "cat";
   const split = aliceInWonderland.replace(regex, "").split(/\s+/);
   const catCount = split.reduce((acc, word) => {
-    if (word.toLowerCase().includes(searchTerm)) {
+    if (word.toLowerCase() === searchTerm) {
       acc++;
     }
     return acc;
@@ -18,6 +18,7 @@ const countCat = () => {
 console.log("Cat Count:", countCat());
 
 const wordFrequency = () => {
+  const excludedWords = ["the", "and", "to", "a", "of", "it", "in", "was"];
   const words = aliceInWonderland.replace(regex, "").split(/\s+/);
   const wordCount = words.reduce((acc, word) => {
     word = word.toLowerCase();
@@ -31,7 +32,12 @@ const wordFrequency = () => {
     return acc;
   }, {});
 
-  return wordCount;
+  const filteredWords = Object.entries(wordCount).filter(
+    (word) => !excludedWords.includes(word[0])
+  );
+  const sortedWords = filteredWords.sort((a, b) => b[1] - a[1]);
+
+  return sortedWords.slice(0, 10);
 };
 
 // Expected output is the top-ten most-frequent words, including the number of times they appear in the text, ordered from most-to-least frequent
