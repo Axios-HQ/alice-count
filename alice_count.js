@@ -6,7 +6,7 @@ const countCat = () => {
   const searchTerm = "cat";
   const split = aliceInWonderland.replace(regex, "").split(/\s+/);
   const catCount = split.reduce((acc, word) => {
-    if (word.toLowerCase().includes(searchTerm)) {
+    if (word.toLowerCase() === searchTerm) {
       acc++;
     }
     return acc;
