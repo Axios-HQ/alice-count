@@ -50,27 +50,24 @@ const wordFrequency = () => {
 console.log("Word Frequency:", wordFrequency());
 
 function withdraw(amount) {
-  const arr = [0, 0, 0]; // Array to hold counts of $100, $50, and $20 bills
+  const arr = [0, 0, 0]; // creating array to hold counts
   let temp = amount;
 
-  // Count $100 bills
-  arr[0] = Math.floor(temp / 100);
+  arr[0] = Math.floor(temp / 100); // counting $100 bills
   temp %= 100;
 
-  // Count $50 bills only if the remainder is large enough and not better handled by $20 bills
-  if (temp >= 50 && temp % 20 !== 0) {
+  if (temp >= 50 && temp % 20 !== 0) { // counting $50 ONLY if the remainder is 0 and not better handled by $20 bills
     arr[1] = Math.floor(temp / 50);
     temp %= 50;
   }
 
-  // Count $20 bills with the remaining amount
-  arr[2] = Math.floor(temp / 20);
+  arr[2] = Math.floor(temp / 20); // counting remaining with $20 bills
   temp %= 20;
 
   return arr;
 }
 
-// Test cases
+// Test cases for withdraw
 console.log(withdraw(250)); // Output: [2, 1, 0]
 console.log(withdraw(260)); // Output: [2, 0, 3]
 console.log(withdraw(370)); // Output: [3, 1, 1]
